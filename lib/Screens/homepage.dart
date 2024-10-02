@@ -120,7 +120,7 @@ class _HomePageState extends State<HomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Enter category name",
+                  "Enter name",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   ),
