@@ -36,25 +36,35 @@ class _LoginPageState extends State<LoginPage> {
           Navigator.of(context).pushNamed('home_Page');
         },
       ),
-      body: Column(
-        children: [
-          Row(
-            children: [
-              ElevatedButton(
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(
+              height: 50,
+              width: 280,
+              child: ElevatedButton(
                 onPressed: () {
                   validateAndSignUpUser();
                 },
                 child: Text("SignUp"),
               ),
-              ElevatedButton(
+            ),
+            SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              height: 50,
+              width: 280,
+              child: ElevatedButton(
                 onPressed: () {
                   validateAndSignInUser();
                 },
-                child: Text("SignUp"),
+                child: Text("SignIn"),
               ),
-            ],
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
@@ -167,8 +177,8 @@ class _LoginPageState extends State<LoginPage> {
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text("Sign up Failed..."),
-                        backgroundColor: Colors.red,
+                        content: Text("Sign up Successfully..."),
+                        backgroundColor: Colors.green,
                         behavior: SnackBarBehavior.floating,
                       ),
                     );

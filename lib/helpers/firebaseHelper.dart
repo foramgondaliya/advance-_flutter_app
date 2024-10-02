@@ -5,7 +5,7 @@ class FireStoreHelper {
   static final FireStoreHelper fireStoreHelper = FireStoreHelper._();
   static final FirebaseFirestore db = FirebaseFirestore.instance;
 
-  Future<void> addAuthenticatedUser({required String email}) async {
+  Future<void> addAuth({required String email}) async {
     bool isUserExists = false;
 
     QuerySnapshot<Map<String, dynamic>> querySnapshot =
@@ -28,20 +28,16 @@ class FireStoreHelper {
       Map<String, dynamic>? data = qs.data();
 
       int id = data!['id'];
-
-      id++;
       await db.collection("users").doc("$id").set({
         "email": email,
       });
     }
   }
 
-  //fetch all users
   Stream<QuerySnapshot<Map<String, dynamic>>> fetchAllUsers() {
     return db.collection("users").snapshots();
   }
 
-//delete user
   Future<void> deleteUser({required String docId}) async {
     await db.collection("users").doc(docId).delete();
   }
